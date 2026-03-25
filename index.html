@@ -756,9 +756,39 @@
   });
 
   // Form submit
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    document.getElementById('signupForm').style.display = 'none';
+
+    const form = document.getElementById('signupForm');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    const payload = {
+      firstName:    document.getElementById('fname').value,
+      lastName:     document.getElementById('lname').value,
+      email:        document.getElementById('email').value,
+      phone:        document.getElementById('phone').value,
+      city:         document.getElementById('city').value,
+      experience:   document.getElementById('experience').value,
+      position:     document.getElementById('position').value,
+      age:          document.getElementById('age').value,
+      practiceDays: document.getElementById('practiceDays').value,
+      notes:        document.getElementById('notes').value,
+    };
+
+    try {
+      await fetch('https://services.leadconnectorhq.com/hooks/IFtiovGmHoKETytJU9wy/webhook-trigger/69c9a635-f4d9-46cf-8acb-99d2f96fdc59', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        mode: 'no-cors'
+      });
+    } catch (err) {
+      console.error('Webhook error:', err);
+    }
+
+    form.style.display = 'none';
     const msg = document.getElementById('successMsg');
     msg.classList.add('show');
     msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
