@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,400&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --red:     #C8102E;
     --red-dk:  #8B0000;
@@ -21,16 +20,13 @@
     --light:   #F4F1EC;
     --white:   #FFFFFF;
   }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'Barlow', sans-serif;
     background: var(--black);
     color: var(--white);
     overflow-x: hidden;
   }
-
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -59,7 +55,6 @@
     transition: color .2s;
   }
   .nav-links a:hover { color: var(--gold); }
-
   /* ── HERO ── */
   .hero {
     position: relative;
@@ -80,7 +75,6 @@
       ),
       var(--black);
   }
-  /* large diagonal stripe */
   .hero-bg::after {
     content: '';
     position: absolute;
@@ -90,7 +84,6 @@
     clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%);
     opacity: 0.06;
   }
-
   .hero-inner {
     position: relative; z-index: 2;
     padding: 120px 48px 80px;
@@ -165,7 +158,6 @@
     transition: border-color .2s, color .2s, transform .15s;
   }
   .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-
   /* ── STATS BAR ── */
   .stats-bar {
     background: var(--red);
@@ -184,10 +176,8 @@
     color: rgba(255,255,255,0.75);
     margin-top: -4px;
   }
-
   /* ── SECTIONS ── */
   section { padding: 100px 48px; }
-
   .section-tag {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700; font-size: 0.72rem;
@@ -207,7 +197,6 @@
     max-width: 600px;
     margin-top: 20px;
   }
-
   /* ── ABOUT ── */
   #about { background: var(--off-blk); }
   .about-grid {
@@ -243,7 +232,6 @@
     0%,100% { transform: translateY(0); }
     50%      { transform: translateY(-14px); }
   }
-
   /* ── WHAT WE DO ── */
   #what { background: var(--black); }
   .what-inner { max-width: 1200px; margin: 0 auto; }
@@ -269,14 +257,13 @@
     margin-bottom: 12px;
   }
   .card-text { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
-
   /* ── SEASON INFO ── */
   #season {
     background: linear-gradient(135deg, var(--red-dk) 0%, var(--red) 100%);
     position: relative; overflow: hidden;
   }
   #season::before {
-    content: '7v7';
+    content: '5v5';
     position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
     font-family: 'Bebas Neue', cursive;
     font-size: 22rem; letter-spacing: -10px;
@@ -309,18 +296,15 @@
     color: rgba(255,255,255,0.65);
     margin-top: 4px;
   }
-
   /* ── SIGN UP FORM ── */
   #signup { background: var(--off-blk); }
   .signup-inner { max-width: 800px; margin: 0 auto; }
   .signup-intro { margin-bottom: 48px; }
-
   .form-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
   }
   .form-group { display: flex; flex-direction: column; gap: 8px; }
   .form-group.full { grid-column: 1 / -1; }
-
   label {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 600; font-size: 0.78rem;
@@ -344,6 +328,54 @@
   select option { background: var(--charcoal); }
   textarea { resize: vertical; min-height: 100px; }
 
+  /* ── DAY PICKER ── */
+  .day-picker {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .day-btn {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 4px;
+    background: var(--charcoal);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.45);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 14px 6px 12px;
+    cursor: pointer;
+    transition: all .18s;
+    user-select: none;
+    position: relative;
+  }
+  .day-btn .day-abbr { font-size: 1rem; letter-spacing: 0; }
+  .day-btn:hover {
+    border-color: rgba(200,16,46,0.5);
+    color: rgba(255,255,255,0.8);
+  }
+  .day-btn.selected {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+  }
+  .day-btn.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 5px; right: 7px;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.8);
+  }
+  .day-note {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+    font-style: italic;
+    margin-top: 8px;
+  }
+
   .form-submit { margin-top: 32px; text-align: center; }
   .form-submit .btn-primary {
     font-size: 1.1rem; padding: 18px 60px;
@@ -355,7 +387,6 @@
     color: rgba(255,255,255,0.35);
     font-style: italic;
   }
-
   /* ── SUCCESS MESSAGE ── */
   .success-msg {
     display: none;
@@ -372,7 +403,6 @@
     font-size: 1.1rem; color: rgba(255,255,255,0.65);
     margin-top: 12px; line-height: 1.6;
   }
-
   /* ── FOOTER ── */
   footer {
     background: var(--black);
@@ -391,7 +421,6 @@
     font-size: 0.82rem; color: rgba(255,255,255,0.25);
     font-style: italic;
   }
-
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
@@ -402,7 +431,6 @@
     transition: opacity .7s ease, transform .7s ease;
   }
   .reveal.in-view { opacity: 1; transform: translateY(0); }
-
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
@@ -414,6 +442,7 @@
     .stats-bar { gap: 32px; padding: 20px 24px; }
     .form-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; text-align: center; padding: 30px 24px; }
+    .day-picker { grid-template-columns: repeat(4, 1fr); }
   }
 </style>
 </head>
@@ -434,14 +463,14 @@
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-    <div class="hero-badge">🏈 &nbsp; Women Only · Est. 2025 · Tri-Valley, CA</div>
+    <div class="hero-badge">🏈 &nbsp; Women Only · Est. 2026 · Tri-Valley, CA</div>
     <h1>
       <span class="line-red">Tri-Valley</span>
       <span>Women's</span>
       <span class="line-outline">Flag Football</span>
     </h1>
     <p class="hero-sub">
-      A brand-new 7-on-7 summer league built by women, for women — right here in the Tri-Valley. 
+      A brand-new 5-on-5 summer league built by women, for women — right here in the Tri-Valley. 
       No experience required. Just heart, hustle, and a love of the game.
     </p>
     <div class="hero-cta">
@@ -454,7 +483,7 @@
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stat">
-    <div class="stat-num">7v7</div>
+    <div class="stat-num">5v5</div>
     <div class="stat-lbl">Format</div>
   </div>
   <div class="stat">
@@ -503,18 +532,18 @@
   <div class="what-inner">
     <div class="reveal">
       <p class="section-tag">What We Do</p>
-      <h2 class="section-title">Seven on Seven.<br/>Full Speed. No Pads.</h2>
+      <h2 class="section-title">Five on Five.<br/>Full Speed. No Pads.</h2>
     </div>
     <div class="cards">
       <div class="card reveal">
         <div class="card-icon">🏃‍♀️</div>
         <div class="card-title">Flag Football</div>
-        <p class="card-text">Non-contact 7v7 gameplay — fast, athletic, and exciting. We use regulation flags so it's pure skill and strategy.</p>
+        <p class="card-text">Non-contact 5v5 gameplay — fast, athletic, and exciting. We use regulation flags so it's pure skill and strategy.</p>
       </div>
       <div class="card reveal">
         <div class="card-icon">📅</div>
         <div class="card-title">Summer League</div>
-        <p class="card-text">Regular weekly games throughout June and July, with a playoff at the end. Evenings and weekends in the Tri-Valley area.</p>
+        <p class="card-text">Regular weekly practices and games throughout June and July, with a playoff at the end. Evenings and weekends in the Tri-Valley area.</p>
       </div>
       <div class="card reveal">
         <div class="card-icon">🤝</div>
@@ -534,18 +563,23 @@
 <section id="season">
   <div class="season-inner">
     <div class="reveal">
-      <p class="section-tag" style="color:var(--gold)">2025 Season</p>
+      <p class="section-tag" style="color:var(--gold)">2026 Season</p>
       <h2 class="section-title" style="color:var(--white)">Mark Your Calendar</h2>
     </div>
     <div class="season-grid">
       <div class="season-item reveal">
+        <div class="season-item-label">Practices</div>
+        <div class="season-item-value">Weekly</div>
+        <div class="season-item-note">One practice per week throughout the season</div>
+      </div>
+      <div class="season-item reveal">
         <div class="season-item-label">Season Starts</div>
-        <div class="season-item-value">June 2025</div>
+        <div class="season-item-value">June 2026</div>
         <div class="season-item-note">Exact dates TBD upon team formation</div>
       </div>
       <div class="season-item reveal">
         <div class="season-item-label">Season Ends</div>
-        <div class="season-item-value">July 2025</div>
+        <div class="season-item-value">July 2026</div>
         <div class="season-item-note">Playoffs included for top teams</div>
       </div>
       <div class="season-item reveal">
@@ -555,7 +589,7 @@
       </div>
       <div class="season-item reveal">
         <div class="season-item-label">Format</div>
-        <div class="season-item-value">7 on 7</div>
+        <div class="season-item-value">5 on 5</div>
         <div class="season-item-note">Flag football, non-contact</div>
       </div>
       <div class="season-item reveal">
@@ -580,7 +614,7 @@
       <h2 class="section-title">Sign Up Today</h2>
       <p class="section-body">
         Drop your info below and we'll reach out with everything you need to know — 
-        registration details, schedules, fees, and more. Spots are limited, so 
+        registration details, schedules and more. Spots are limited, so 
         get on the list early!
       </p>
     </div>
@@ -642,6 +676,22 @@
           <input type="number" id="age" name="age" placeholder="25" min="18" max="99"/>
         </div>
 
+        <!-- PRACTICE DAY SELECTOR -->
+        <div class="form-group full">
+          <label>Preferred Practice Day(s)</label>
+          <div class="day-picker" id="dayPicker">
+            <button type="button" class="day-btn" data-day="Monday"><span class="day-abbr">M</span>Mon</button>
+            <button type="button" class="day-btn" data-day="Tuesday"><span class="day-abbr">T</span>Tue</button>
+            <button type="button" class="day-btn" data-day="Wednesday"><span class="day-abbr">W</span>Wed</button>
+            <button type="button" class="day-btn" data-day="Thursday"><span class="day-abbr">T</span>Thu</button>
+            <button type="button" class="day-btn" data-day="Friday"><span class="day-abbr">F</span>Fri</button>
+            <button type="button" class="day-btn" data-day="Saturday"><span class="day-abbr">S</span>Sat</button>
+            <button type="button" class="day-btn" data-day="Sunday"><span class="day-abbr">S</span>Sun</button>
+          </div>
+          <input type="hidden" id="practiceDays" name="practiceDays"/>
+          <p class="day-note">Select all days that work for you — we'll do our best to schedule around the group.</p>
+        </div>
+
         <div class="form-group full">
           <label for="notes">Anything Else We Should Know?</label>
           <textarea id="notes" name="notes" placeholder="Questions, scheduling needs, if you're bringing friends, etc."></textarea>
@@ -651,7 +701,7 @@
 
       <div class="form-submit">
         <button type="submit" class="btn-primary">Reserve My Spot 🏈</button>
-        <p class="form-note">This is an interest form — no payment required yet. We'll follow up with next steps.</p>
+        <p class="form-note">This is an interest form — no payment required. We'll follow up with next steps.</p>
       </div>
     </form>
 
@@ -671,16 +721,15 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">TV<span>WFF</span>L</div>
-  <div class="footer-text">Tri-Valley Women's Flag Football League · Summer 2025 · Tri-Valley, California</div>
+  <div class="footer-text">Tri-Valley Women's Flag Football League · Summer 2026 · Tri-Valley, California</div>
 </footer>
 
 <script>
   // Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
+    entries.forEach((e) => {
       if (e.isIntersecting) {
-        // Stagger siblings
         const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
         const idx = siblings.indexOf(e.target);
         setTimeout(() => e.target.classList.add('in-view'), idx * 120);
@@ -689,6 +738,22 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
+
+  // Day picker toggle
+  const selectedDays = new Set();
+  document.querySelectorAll('.day-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const day = btn.dataset.day;
+      if (selectedDays.has(day)) {
+        selectedDays.delete(day);
+        btn.classList.remove('selected');
+      } else {
+        selectedDays.add(day);
+        btn.classList.add('selected');
+      }
+      document.getElementById('practiceDays').value = [...selectedDays].join(', ');
+    });
+  });
 
   // Form submit
   function handleSubmit(e) {
